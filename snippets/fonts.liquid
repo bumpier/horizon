@@ -1,4 +1,36 @@
 {% # theme-check-disable %}
+{%- comment -%}
+  Font imports: Cal Sans and Space Grotesk
+  Cal Sans: Using Typekit (replace YOUR_TYPEKIT_ID with actual ID)
+  Space Grotesk: Via Google Fonts
+{%- endcomment -%}
+
+{%- comment -%} Google Fonts preconnect {%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+{%- comment -%} Space Grotesk from Google Fonts {%- endcomment -%}
+<link
+  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+{%- comment -%}
+  Cal Sans from Typekit
+  Replace YOUR_TYPEKIT_ID with your actual Typekit project ID
+  Alternatively, self-host the font as .woff2 files
+{%- endcomment -%}
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'YOUR_TYPEKIT_ID',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){if(tk.readyState&&tk.readyState!="loaded"&&tk.readyState!="complete"){return}if(f){return}f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
 {%- unless settings.type_body_font.system? -%}
   <link
     rel="preload"

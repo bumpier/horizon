@@ -1,0 +1,137 @@
+/* ========================================
+   THEME-LEVEL OVERWRITE
+   Strip Shopify defaults, enforce minimalism
+   ======================================== */
+
+/* RESET - Remove all softness */
+* {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* TYPOGRAPHY - Enforce Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: var(--lh-tight);
+  margin: 0;
+  padding: 0;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: var(--lh-normal);
+}
+
+/* REMOVE ALL BORDER-RADIUS */
+button, .button, input, select, textarea, .card, .product-card {
+  border-radius: 0 !important;
+}
+
+/* BUTTON GLOBAL RESET */
+button, .button, [role="button"] {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: var(--border-none);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+button:hover, .button:hover, [role="button"]:hover {
+  background-color: var(--color-action);
+  transform: scale(1.04);
+}
+
+button:active, .button:active {
+  transform: scale(0.98);
+}
+
+/* REMOVE ANIMATIONS on non-interactive */
+* {
+  animation: none !important;
+}
+
+/* IMAGES - Enforce Cover + Aspect Ratio */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* LINKS - No Underline */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-action);
+}
+
+/* SHOPIFY SECTION DEFAULTS */
+.shopify-section {
+  padding: var(--section-spacing) 0;
+  margin: 0;
+}
+
+.page-width {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+/* BORDERS */
+hr, .divider {
+  border: var(--border-hairline);
+  margin: var(--section-spacing) 0;
+}
+
+/* FOCUS STATES - Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 2px;
+}
+
+/* REMOVE SHOPIFY CARD DEFAULTS */
+.card {
+  border: var(--border-none) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.card:hover {
+  box-shadow: none !important;
+  transform: none !important;
+}

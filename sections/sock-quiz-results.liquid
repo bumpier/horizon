@@ -1,0 +1,84 @@
+{% comment %}
+  Sock Quiz Results Section
+  Displays personalized product recommendations based on quiz answers
+
+  Usage:
+  1. Add this section to your theme's sections folder
+  2. Include in a page template with: {% section 'sock-quiz-results' %}
+{% endcomment %}
+
+{%- style -%}
+  .sock-quiz-results-section {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+  .sock-quiz-results-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+{%- endstyle -%}
+
+<div class="sock-quiz-results-section">
+  <div class="sock-quiz-results-container">
+    <!-- Results Container - Populated by JavaScript -->
+    <div id="sock-quiz-results"></div>
+  </div>
+</div>
+
+<!-- Load Quiz Config -->
+{% render 'sock-quiz-config' %}
+
+<!-- Load Quiz Styles -->
+{{ 'sock-quiz.css' | asset_url | stylesheet_tag }}
+
+<!-- Load Quiz Script -->
+{{ 'sock-quiz.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Quiz Results",
+  "tag": "section",
+  "class": "sock-quiz-results-section-wrapper",
+  "settings": [
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "default": 900,
+      "label": "Content max width (px)"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "label": "Padding bottom (px)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Results"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": {
+      "type": "sock-quiz",
+      "settings": {
+        "show_heading": true,
+        "heading": "Find Your Perfect Socks",
+        "subheading": "Answer a few quick questions and we'll match you with the ideal socks for your activity.",
+        "max_width": 600,
+        "background_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": ["main"]
+}

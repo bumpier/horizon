@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "sock-quiz-results",
+      "settings": {
+        "max_width": 900,
+        "background_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szoks Horizon - Premium Performance</title>
+
+    <!-- Base Styles and Reset -->
+    <link rel="stylesheet" href="assets/base.css">
+    <link rel="stylesheet" href="assets/premium-theme.css">
+
+    <style>
+        /* Inline mocks for liquid functionality */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+
+        .page-width {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Mock Header */
+        header {
+            padding: 20px 40px;
+            /* Backdrop filter handled in CSS now */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        nav ul li:hover {
+            color: #000;
+            cursor: pointer;
+        }
+
+        /* Mock Product List Grid */
+        .grid {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            /* Larger cards */
+        }
+
+        .product-img {
+            background: #f5f5f7;
+            height: 400px;
+            /* Taller, premium feel */
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img img {
+            max-width: 80%;
+            mix-blend-mode: multiply;
+        }
+
+        /* Helper for Hero */
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">Szoks</div>
+        <nav>
+            <ul>
+                <li>Shop</li>
+                <li>Search</li>
+            </ul>
+        </nav>
+        <div class="actions">Cart (0)</div>
+    </header>
+
+    <main id="MainContent">
+
+        <!-- Hero Section - Apple Style (BACKGROUND VERSION) -->
+        <section class="hero-section"
+            style="position: relative; height: 90vh; display: flex; align-items: center; justify-content: center; background: #000; overflow: hidden; margin-top: -85px;">
+            <!-- neg margin to go behind header if transparent, but here simple reset -->
+
+            <!-- Background Image -->
+            <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0;">
+                <div
+                    style="width: 100%; height: 100%; background: url('https://placehold.co/2400x1600/111/FFF?text=Hero+Background+Shot') center/cover;">
+                </div>
+            </div>
+
+            <!-- Overlay -->
+            <div
+                style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); z-index: 1;">
+            </div>
+
+            <!-- Content -->
+            <div class="page-width" style="position: relative; z-index: 2; text-align: center; width: 100%;">
+                <div class="hero-content">
+                    <h2 class="banner__heading" style="margin-bottom: 20px; color: #fff;">Performance.<br>Personalized.
+                    </h2>
+                    <p
+                        style="font-size: 21px; font-weight: 400; color: rgba(255,255,255,0.9); margin-top: 0; margin-bottom: 40px; line-height: 1.4;">
+                        Stop guessing. Start performing. <br>Our algorithm finds the perfect sock for your run in 30
+                        seconds.
+                    </p>
+                    <div class="banner__buttons">
+                        <a href="#" class="button button--primary" style="padding: 24px 48px; font-size: 20px;">Take the
+                            Quiz</a>
+                        <a href="#" class="button button--secondary" style="border-color: #fff; color: #fff;">How it
+                            Works</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section class="page-width" style="padding-top: 100px; padding-bottom: 100px;">
+            <div style="margin-bottom: 60px;">
+                <h3 style="font-size: 48px; font-weight: 600; letter-spacing: -1px; margin-bottom: 10px;">The
+                    Collection.</h3>
+                <p style="color: #666; font-size: 19px;">Essentials for your best run.</p>
+            </div>
+
+            <div class="grid">
+                <!-- Mock Products -->
+                <div class="card p-4">
+                    <div class="product-img">
+                        <span style="color: #aaa; font-weight: 500;">Product Shot</span>
+                    </div>
+                    <div class="card__content">
+                        <div class="card__heading">Elite Compression</div>
+                        <div class="price">$24.00</div>
+                    </div>
+                </div>
+                <div class="card p-4">
+                    <div class="product-img">
+                        <span style="color: #aaa; font-weight: 500;">Product Shot</span>
+                    </div>
+                    <div class="card__content">
+                        <div class="card__heading">Recovery Crew</div>
+                        <div class="price">$35.00</div>
+                    </div>
+                </div>
+                <div class="card p-4">
+                    <div class="product-img">
+                        <span style="color: #aaa; font-weight: 500;">Product Shot</span>
+                    </div>
+                    <div class="card__content">
+                        <div class="card__heading">Invisible Tech</div>
+                        <div class="price">$28.00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop CTA Section - Floating Card (Formerly Quiz) -->
+        <section id="shop-cta" class="page-width">
+            <div class="quiz-cta" style="background: #f5f5f7;">
+                <div class="quiz-cta__content">
+                    <h2 class="quiz-cta__heading">Explore the full range.</h2>
+                    <div class="quiz-cta__text">
+                        <p>From compression to recovery, find the gear that keeps you moving.</p>
+                    </div>
+                    <a href="#" class="button btn">Shop All</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer" style="padding: 80px 0; background: #fff; border-top: 1px solid #f5f5f7;">
+        <div class="page-width">
+            <div class="footer__content-top" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;">
+                <div>
+                    <div class="footer-block__heading" style="color: #111; font-size: 12px; margin-bottom: 20px;">SZOKS
+                    </div>
+                    <ul style="list-style: none; padding: 0; color: #555; font-size: 12px; line-height: 2;">
+                        <li>About Us</li>
+                        <li>Careers</li>
+                        <li>Investors</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-block__heading" style="color: #111; font-size: 12px; margin-bottom: 20px;">
+                        SUPPORT</div>
+                    <ul style="list-style: none; padding: 0; color: #555; font-size: 12px; line-height: 2;">
+                        <li>Contact</li>
+                        <li>Shipping</li>
+                        <li>Returns</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 12px;">
+                &copy; 2026 Szoks Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

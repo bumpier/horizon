@@ -1,0 +1,128 @@
+{% comment %}
+  Sock Quiz Configuration
+  Edit these settings to customize the quiz behavior
+{% endcomment %}
+
+<script>
+  window.SOCK_QUIZ_CONFIG = {
+    // ═══════════════════════════════════════════════════════════════
+    // ACTIVITIES - Add new sports here
+    // ═══════════════════════════════════════════════════════════════
+    activities: [
+      { id: 'running', label: 'Running', icon: '🏃' },
+      { id: 'snowboarding', label: 'Snowboarding', icon: '🏂' },
+      { id: 'climbing', label: 'Climbing', icon: '🧗' },
+      { id: 'hiking', label: 'Hiking', icon: '🥾' }
+      // Add new activities like this:
+      // { id: 'cycling', label: 'Cycling', icon: '🚴' },
+    ],
+
+    // ═══════════════════════════════════════════════════════════════
+    // GENDERS
+    // ═══════════════════════════════════════════════════════════════
+    genders: [
+      { id: 'male', label: 'Men', icon: '👨' },
+      { id: 'female', label: 'Women', icon: '👩' }
+    ],
+
+    // ═══════════════════════════════════════════════════════════════
+    // SHOE SIZES (UK sizing)
+    // ═══════════════════════════════════════════════════════════════
+    sizeCategories: [
+      { id: 'medium', label: 'Medium (UK 5-7)', min: 5, max: 7, matchTags: ['size:medium', 'size:5-7', 'medium'] },
+      { id: 'large', label: 'Large (UK 8-11)', min: 8, max: 11, matchTags: ['size:large', 'size:8-11', 'large'] }
+    ],
+
+    // How sizes map to product tags (Backup/Legacy)
+    sizeRanges: [
+      { tag: 'size:5-7', min: 5, max: 7 },
+      { tag: 'size:8-11', min: 8, max: 11 }
+    ],
+
+    // ═══════════════════════════════════════════════════════════════
+    // COLORS
+    // ═══════════════════════════════════════════════════════════════
+    colors: [
+      { id: 'black', label: 'Black', hex: '#1a1a1a' },
+      { id: 'white', label: 'White', hex: '#ffffff' },
+      { id: 'grey', label: 'Grey', hex: '#6b7280' },
+      { id: 'bright', label: 'Bold Colors', hex: 'linear-gradient(135deg, #f97316, #ec4899, #8b5cf6)' }
+    ],
+
+    // ═══════════════════════════════════════════════════════════════
+    // FEATURE TOGGLES
+    // ═══════════════════════════════════════════════════════════════
+    features: {
+      showEmailCapture: false,        // Show email signup on results page
+      allowMultipleActivities: true,  // Allow selecting multiple activities
+      allowMultipleColors: true,      // Allow selecting multiple colors
+      autoAdvance: true,              // Auto-advance after single-select options
+      showBackButton: true            // Show back button on steps 2+
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // MESSAGING - Sales-focused copy
+    // ═══════════════════════════════════════════════════════════════
+    messages: {
+      step1: {
+        question: "Let's find your perfect socks",
+        microcopy: "Engineered for performance. Built for you."
+      },
+      step2: {
+        question: "What do you need them for?",
+        microcopy: "Select all that apply — we have hybrid options too",
+        buttonText: "Continue"
+      },
+      step3: {
+        question: "What's your size?",
+        microcopy: "UK sizing — get the perfect fit"
+      },
+      step4: {
+        question: "Last step: Pick your style",
+        microcopy: "Select one or more",
+        buttonText: "Show My Results"
+      },
+      results: {
+        headline: "Your Performance Socks",
+        subheadline: "Hand-picked based on your needs",
+        noExactMatch: "These are our closest matches for your criteria.",
+        alsoGreat: "You Might Also Like",
+        addedToCart: "Added to Cart",
+        retakeQuiz: "Start Over",
+        browseAll: "See All Socks",
+        emailHeadline: "Get 10% Off Your First Order",
+        emailMicrocopy: "Plus early access to new releases",
+        emailPlaceholder: "Your email",
+        emailButton: "Get My Discount"
+      },
+      benefits: {
+        shipping: "Free UK Shipping Over £30",
+        returns: "30-Day Returns",
+        quality: "Premium Materials"
+      }
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // URLS - Update these to match your Shopify page handles
+    // ═══════════════════════════════════════════════════════════════
+    urls: {
+      quizPage: '/pages/sock-quiz',
+      resultsPage: '/pages/sock-results',
+      allProductsCollection: '/collections/all'
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // SCORING (for product matching)
+    // ═══════════════════════════════════════════════════════════════
+    scoring: {
+      activityMatch: 100,       // Points per matching activity
+      multiActivityBonus: 50,   // Bonus for products matching multiple selected activities
+      genderExactMatch: 50,
+      genderUnisexMatch: 25,
+      sizeMatch: 30,
+      colorMatch: 20,
+      bestsellerBonus: 10,
+      minimumScore: 150         // Lowered to accommodate multi-activity matching
+    }
+  };
+</script>

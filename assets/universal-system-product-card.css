@@ -1,0 +1,100 @@
+/* ========================================
+   PRODUCT CARD COMPONENT - Image First
+   ======================================== */
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: var(--border-none);
+  border-radius: 0;
+  transition: none;
+}
+
+/* PRODUCT IMAGE - 4:5 Ratio */
+.product-card__image {
+  width: 100%;
+  aspect-ratio: var(--ar-product);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  background-color: var(--color-white);
+  border: var(--border-none);
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover .product-card__image img {
+  transform: scale(1.05);
+}
+
+/* PRODUCT TITLE */
+.product-card__title {
+  font-family: var(--font-headline);
+  font-size: var(--fs-h4);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--lh-tight);
+}
+
+/* PRODUCT PRICE */
+.product-card__price {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-black);
+  margin-bottom: var(--spacing-md);
+}
+
+/* PRODUCT BUTTON */
+.product-card .btn--product {
+  width: 100%;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border: var(--border-none);
+  font-size: var(--fs-body-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.product-card .btn--product:hover {
+  background-color: var(--color-action);
+}
+
+.product-card .btn--product:active {
+  transform: scale(0.98);
+}
+
+/* PRODUCT GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-2xl) var(--spacing-xl);
+  width: 100%;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

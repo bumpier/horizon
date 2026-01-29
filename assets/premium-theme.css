@@ -67,31 +67,45 @@ h6,
   width: 100%;
 }
 
-/* Buttons - The Pill */
+/* Buttons - The Pill (Global Base) */
 .button,
 .btn,
 .sq-btn--primary {
   background-color: var(--pp-black) !important;
   color: var(--pp-white) !important;
   border-radius: 980px !important;
-  /* Full Pill */
-  padding: 18px 32px !important;
-  font-size: 17px !important;
+  padding: 12px 24px !important;
+  /* Standard Size */
+  font-size: 15px !important;
   font-weight: 500 !important;
   text-transform: none !important;
-  /* Sentence case is more premium */
   letter-spacing: 0;
   border: none;
   transform: none !important;
-  /* Remove skew */
   box-shadow: none !important;
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.3s ease;
+  min-width: fit-content;
+  /* Prevent weird squashing */
+}
+
+/* Scoped Header Button Reset */
+.header .button,
+.header .btn {
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+}
+
+/* Hero & CTA - Large Buttons */
+.apple-hero .button,
+.quiz-cta .button,
+.banner__buttons .button {
+  padding: 18px 32px !important;
+  font-size: 17px !important;
 }
 
 .button:hover,
 .btn:hover {
   transform: scale(1.02) !important;
-  /* Subtle growth */
   background-color: #333 !important;
 }
 
@@ -106,10 +120,19 @@ h6,
   color: var(--pp-white) !important;
 }
 
+/* Product Card Buttons - Fix Visibility */
+.card .button,
+.product-card .button,
+.grid-product__button {
+  background-color: var(--pp-black) !important;
+  color: var(--pp-white) !important;
+  border: 1px solid var(--pp-black) !important;
+  /* Ensure border for shape */
+}
+
 /* Section Layouts - Breathable */
 .page-width {
   max-width: 1440px;
-  /* Wider container */
 }
 
 /* Product Cards - Minimalist */
@@ -123,9 +146,7 @@ h6,
 
 .card:hover {
   transform: translateY(-4px);
-  /* Subtle lift */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-  /* Soft, expansive shadow */
 }
 
 .card__heading {
@@ -146,14 +167,11 @@ h6,
 /* Quiz CTA - Modern Tech */
 .quiz-cta {
   background-color: var(--pp-light-grey);
-  /* Soft contrast */
   color: var(--pp-black);
   clip-path: none;
-  /* Remove Slant */
   padding: 120px 0;
   border-radius: 24px;
   margin: 40px 20px;
-  /* Floating island look */
 }
 
 .quiz-cta__content {
@@ -182,18 +200,14 @@ h6,
   line-height: 1.4;
 }
 
-/* Hero Feature Button */
+/* Hero Feature Button (Already covered by scope above, but ensuring shadow) */
 .quiz-cta .button {
-  padding: 24px 48px !important;
-  /* Larger touch target */
-  font-size: 20px !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Navigation - Clean */
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  /* Barely there */
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(20px);
 }
@@ -205,7 +219,6 @@ h6,
   .apple-hero__heading,
   .banner__heading {
     font-size: 2.5rem !important;
-    /* Scale down from desktop */
     margin-bottom: 1rem;
   }
 
@@ -215,26 +228,29 @@ h6,
     padding: 0 1rem;
   }
 
-  /* Buttons */
+  /* Buttons - Only Hero/CTA stack full width */
   .apple-hero__buttons,
   .banner__buttons {
     flex-direction: column;
-    /* Stack buttons on mobile if needed, or keep row but smaller */
     gap: 12px;
   }
 
-  .button,
-  .btn {
+  .apple-hero .button,
+  .banner__buttons .button,
+  .quiz-cta .button {
     width: 100%;
-    /* Full width buttons on mobile */
-    padding: 14px 24px !important;
-    font-size: 16px !important;
+    padding: 16px 24px !important;
+  }
+
+  /* Header buttons stay normal */
+  .header .button {
+    width: auto !important;
+    padding: 8px 16px !important;
   }
 
   /* Product Grid */
   .grid {
     grid-template-columns: 1fr !important;
-    /* Single column */
     gap: 20px;
   }
 

@@ -94,6 +94,17 @@
         const shouldApplyOffset = !hasImmediateSection ? '1' : '0';
         document.body.style.setProperty('--transparent-header-offset-boolean', shouldApplyOffset);
       })();
+
+      // Scroll detection for header - triggers 'scrolled' class for subtle background enhancement
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 50) {
+          header?.classList.add('scrolled');
+        } else {
+          header?.classList.remove('scrolled');
+        }
+      });
     </script>
 
     <main

@@ -11,6 +11,15 @@
   /* Classic Tech Blue or keeping it mono */
 
   --font-stack-premium: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Premium Spacing - Nike/Apple Scale */
+  --premium-section-spacing-mobile: 60px;
+  --premium-section-spacing-tablet: 80px;
+  --premium-section-spacing-desktop: 100px;
+  --premium-section-spacing-large: 120px;
+
+  /* Content gaps */
+  --premium-content-gap: 48px;
 }
 
 body {
@@ -104,9 +113,11 @@ h6,
 }
 
 .button:hover,
-.btn:hover {
-  transform: scale(1.02) !important;
-  background-color: #333 !important;
+.btn:hover,
+.sq-btn--primary:hover {
+  transform: scale(1.04) !important;
+  background-color: #2b2b2b !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 .button--secondary {
@@ -132,39 +143,43 @@ h6,
 
 /* Section Layouts - Breathable */
 .page-width {
-  max-width: 1440px;
+  max-width: 1280px;
+  padding-inline: clamp(20px, 5vw, 60px);
 }
 
-/* Product Cards - Minimalist */
+/* Product Cards - Ultra Flat (Nike/Apple Style) */
 .card {
   border: none !important;
-  border-radius: 12px !important;
-  overflow: hidden;
-  background: var(--pp-light-grey);
-  transition: all 0.4s ease;
+  border-radius: 0 !important;
+  overflow: visible;
+  background: transparent !important;
+  transition: opacity 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  opacity: 0.85;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .card__heading {
   font-family: var(--font-stack-premium);
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
   text-transform: none;
   font-style: normal;
+  letter-spacing: -0.01em;
 }
 
 .price {
-  font-size: 15px;
+  font-size: 14px;
   color: #666;
   font-weight: 400;
+  margin-top: 4px;
 }
 
-/* Product Images - Standardized Square */
+/* Product Images - Maximum Coverage */
 .card__media,
 .media,
 .product-img {
@@ -172,14 +187,13 @@ h6,
   height: auto !important;
   width: 100% !important;
   padding-bottom: 0 !important;
-  /* Override Shopify's intrinsic ratio padding */
-  background-color: var(--pp-light-grey);
-  /* Ensure background for 'contain' */
-  border-radius: 12px;
+  background-color: #fafafa;
+  border-radius: 0 !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .card__media img,
@@ -187,10 +201,31 @@ h6,
 .product-img img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;
-  /* Keep whole product visible */
-  mix-blend-mode: multiply;
-  /* Helps blend white backgrounds onto grey */
+  object-fit: cover !important;
+  mix-blend-mode: normal;
+}
+
+/* Remove padding from card content to maximize image */
+.product-card__content,
+.product-grid__card {
+  padding: 0 !important;
+}
+
+/* Product Grid - Generous Gaps */
+.product-grid {
+  gap: 40px 24px !important;
+}
+
+@media screen and (min-width: 750px) {
+  .product-grid {
+    gap: 48px 32px !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .product-grid {
+    gap: 60px 40px !important;
+  }
 }
 
 /* Quiz CTA - Modern Tech */
@@ -239,6 +274,47 @@ h6,
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Scroll state - triggers when user scrolls */
+.header.scrolled,
+body:not([class*="template-index"]) .header {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Center logo styling */
+.header__logo {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Minimalist navigation */
+.header__menu {
+  gap: clamp(24px, 3vw, 48px);
+}
+
+.header__menu-item {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* Sleeker header height */
+.header:not(.header--compact) {
+  --header-padding-block: 16px;
+}
+
+@media screen and (min-width: 750px) {
+  .header:not(.header--compact) {
+    --header-padding-block: 20px;
+  }
 }
 
 /* Mobile Optimization */
@@ -300,4 +376,78 @@ h6,
   .page-width {
     padding: 0 1.5rem;
   }
+}
+
+/* Section Spacing - Generous Breathing Room */
+.shopify-section {
+  padding-block-start: var(--premium-section-spacing-mobile);
+  padding-block-end: var(--premium-section-spacing-mobile);
+}
+
+@media screen and (min-width: 750px) {
+  .shopify-section {
+    padding-block-start: var(--premium-section-spacing-tablet);
+    padding-block-end: var(--premium-section-spacing-tablet);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .shopify-section {
+    padding-block-start: var(--premium-section-spacing-desktop);
+    padding-block-end: var(--premium-section-spacing-desktop);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .shopify-section {
+    padding-block-start: var(--premium-section-spacing-large);
+    padding-block-end: var(--premium-section-spacing-large);
+  }
+}
+
+/* Reduce spacing for first/last sections */
+.shopify-section:first-of-type {
+  padding-block-start: calc(var(--premium-section-spacing-mobile) * 0.6);
+}
+
+.shopify-section:last-of-type {
+  padding-block-end: calc(var(--premium-section-spacing-mobile) * 0.6);
+}
+
+/* Content element spacing */
+.section > * + * {
+  margin-block-start: var(--premium-content-gap);
+}
+
+/* Typography Enhancements */
+body {
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Minimal link styling */
+a {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Clean focus states */
+*:focus-visible {
+  outline: 2px solid var(--pp-black);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Subtle dividers */
+hr,
+.divider {
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
 }

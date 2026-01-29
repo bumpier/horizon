@@ -1,0 +1,67 @@
+:root {
+  /* COLOR PALETTE - High Contrast Only */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-action: #FF6B00; /* Electric Orange */
+
+  /* TYPOGRAPHY - Fonts */
+  --font-headline: 'Cal Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* HEADLINE SIZES - Cal Sans */
+  --fs-h1: clamp(2.5rem, 8vw, 5rem);
+  --fs-h2: clamp(2rem, 6vw, 3.5rem);
+  --fs-h3: clamp(1.5rem, 4vw, 2.5rem);
+  --fs-h4: 1.25rem;
+
+  /* BODY SIZES - Space Grotesk */
+  --fs-body-large: 1.125rem;
+  --fs-body: 1rem;
+  --fs-body-small: 0.875rem;
+  --fs-caption: 0.75rem;
+
+  /* SPACING - 8px Base Grid */
+  --spacing-xs: 0.5rem;     /* 8px */
+  --spacing-sm: 1rem;       /* 16px */
+  --spacing-md: 1.5rem;     /* 24px */
+  --spacing-lg: 2rem;       /* 32px */
+  --spacing-xl: 3rem;       /* 48px */
+  --spacing-2xl: 4rem;      /* 64px */
+  --spacing-3xl: 6rem;      /* 96px */
+
+  /* SECTION SPACING - Rhythmic Breath */
+  --section-spacing: clamp(6rem, 20vw, 9.375rem);
+  --premium-section-spacing-mobile: 60px;
+  --premium-section-spacing-tablet: 80px;
+  --premium-section-spacing-desktop: 100px;
+  --premium-section-spacing-large: 120px;
+
+  /* GRID SYSTEM */
+  --grid-columns: 12;
+  --grid-gutter: 2rem;
+
+  /* BUTTON SPECS */
+  --btn-padding-y: 12px;
+  --btn-padding-x: 24px;
+  --btn-border-radius: 0;
+  --btn-font-size: 0.875rem;
+  --btn-font-weight: 600;
+
+  /* IMAGE ASPECT RATIOS */
+  --ar-product: 4 / 5;
+  --ar-banner: 16 / 9;
+  --ar-square: 1 / 1;
+
+  /* LINE HEIGHT */
+  --lh-tight: 1.1;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.8;
+
+  /* BORDERS */
+  --border-hairline: 1px solid var(--color-black);
+  --border-none: none;
+
+  /* TRANSITIONS - Minimal, Linear */
+  --transition-fast: 0.2s linear;
+  --transition-normal: 0.3s linear;
+}

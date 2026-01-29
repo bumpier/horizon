@@ -164,6 +164,35 @@ h6,
   font-weight: 400;
 }
 
+/* Product Images - Standardized Square */
+.card__media,
+.media,
+.product-img {
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  width: 100% !important;
+  padding-bottom: 0 !important;
+  /* Override Shopify's intrinsic ratio padding */
+  background-color: var(--pp-light-grey);
+  /* Ensure background for 'contain' */
+  border-radius: 12px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card__media img,
+.media img,
+.product-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  /* Keep whole product visible */
+  mix-blend-mode: multiply;
+  /* Helps blend white backgrounds onto grey */
+}
+
 /* Quiz CTA - Modern Tech */
 .quiz-cta {
   background-color: var(--pp-light-grey);
